@@ -4,7 +4,8 @@
   "info": {
     "singularName": "movie",
     "pluralName": "movies",
-    "displayName": "Movie"
+    "displayName": "Movie",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,23 +13,56 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "poster": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "description": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
+    },
+    "release": {
+      "type": "date",
+      "default": "2024-10-28",
+      "required": true
+    },
+    "watched": {
+      "type": "boolean"
+    },
+    "rating": {
+      "type": "integer",
+      "max": 5,
+      "min": 1
     },
     "genre": {
-      "type": "string"
+      "type": "customField",
+      "default": "[]",
+      "options": [
+        "Action",
+        "Anime",
+        "Drama",
+        "Dokumentär",
+        "Fantasy",
+        "Komedi",
+        "Romantik",
+        "Science-Fiction",
+        "Skräck",
+        "Tecknat",
+        "Thriller",
+        "Western",
+        "Äventyr"
+      ],
+      "customField": "plugin::multi-select.multi-select"
     }
   }
 }

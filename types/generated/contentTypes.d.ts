@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiMovieMovie extends Struct.CollectionTypeSchema {
   collectionName: 'movies';
   info: {
+    description: '';
     displayName: 'Movie';
     pluralName: 'movies';
     singularName: 'movie';
@@ -383,17 +384,49 @@ export interface ApiMovieMovie extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.RichText;
-    genre: Schema.Attribute.String;
+    description: Schema.Attribute.RichText & Schema.Attribute.Required;
+    genre: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'Action',
+          'Anime',
+          'Drama',
+          'Dokument\u00E4r',
+          'Fantasy',
+          'Komedi',
+          'Romantik',
+          'Science-Fiction',
+          'Skr\u00E4ck',
+          'Tecknat',
+          'Thriller',
+          'Western',
+          '\u00C4ventyr',
+        ]
+      > &
+      Schema.Attribute.DefaultTo<'[]'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::movie.movie'> &
       Schema.Attribute.Private;
-    poster: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    poster: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
+    rating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 5;
+          min: 1;
+        },
+        number
+      >;
+    release: Schema.Attribute.Date &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'2024-10-28'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    watched: Schema.Attribute.Boolean;
   };
 }
 
