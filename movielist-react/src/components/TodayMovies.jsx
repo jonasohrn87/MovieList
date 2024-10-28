@@ -25,7 +25,7 @@ const TodayMovies = () => {
     )
     .sort((a, b) => a.title.localeCompare(b.title));
 
-return (
+  return (
     <div className="todayMovies-container">
       <div className="searchbar">
         <h2>Våra filmer</h2>
