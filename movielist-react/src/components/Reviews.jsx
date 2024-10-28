@@ -30,18 +30,18 @@ const Reviews = () => {
             <div className="searchbar">
                 <h2>Recensioner</h2>
                 <input
-                type="text"
-                placeholder="Sök recensioner..."
-                value={searchReview}
-                onChange={(e) => setSearchReview(e.target.value)}
-                className="search-input"
+                    type="text"
+                    placeholder="Sök recensioner..."
+                    value={searchReview}
+                    onChange={(e) => setSearchReview(e.target.value)}
+                    className="search-input"
                 />
             </div>
-            <div className = "reviews-grid">
+            <div className="reviews-grid">
                 {searchFilter.map((review) => (
                     <div key={review.id} className="review-card">
                         <h2>{review.title}</h2>
-                        <p>{review.review}</p>
+
                         <p>Betyg: {review.rating}</p>
                         {review.image && (
                             <img
@@ -49,6 +49,7 @@ const Reviews = () => {
                                 alt={`${review.title} image`}
                             />
                         )}
+                        <p>{review.review}</p>
                     </div>
                 ))}
             </div>

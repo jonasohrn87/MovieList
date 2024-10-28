@@ -148,23 +148,23 @@ body {
   line-height: 1.5;
 }
 
-.review-grid {
+.reviews-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
 }
 @media (min-width: 580px) {
-  .review-grid {
+  .reviews-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (min-width: 780px) {
-  .review-grid {
+  .reviews-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (min-width: 1000px) {
-  .review-grid {
+  .reviews-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
