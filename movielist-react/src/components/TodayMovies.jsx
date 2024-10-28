@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import "../App.css";
 
-const TodayMovies = () => {
+const TodayMovies = ({ onMovieClick }) => {
   const [movies, setMovies] = useState([]);
   const [searchMovie, setSearchMovie] = useState("");
+
+  const handleClick = (movie) => {
+    onMovieClick(movie);
+  };
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -20,8 +25,12 @@ const TodayMovies = () => {
   }, []);
 
   const searchFilter = movies
-    .filter((movie) =>
-      movie.title?.toLowerCase().includes(searchMovie.toLowerCase())
+    .filter(
+      (movie) =>
+        movie.title?.toLowerCase().includes(searchMovie.toLowerCase()) ||
+        movie.genre.some((genre) =>
+          genre.toLowerCase().includes(searchMovie.toLowerCase())
+        )
     )
     .sort((a, b) => a.title.localeCompare(b.title));
 
@@ -48,7 +57,12 @@ const TodayMovies = () => {
                 className="movie-poster"
               />
             )}
-            <p className="movie-description">{movie.description}</p>
+            <p className="movie-description">
+              {movie.description.substring(0, 200) + "..."}
+              <NavLink to={"/movie"} end onClick={() => handleClick(movie)}>
+                Läs mer ➡️
+              </NavLink>
+            </p>
           </div>
         ))}
       </div>
