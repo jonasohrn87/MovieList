@@ -1,42 +1,149 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #D0E4E7;
+  color: black;
+  min-height: 100vh;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.menu-container {
+  background-color: white;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.menu-container .menu-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  list-style-type: none;
+}
+@media (min-width: 580px) {
+  .menu-container .menu-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 1000px) {
+  .menu-container .menu-list {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+.menu-container .menu-list li {
   text-align: center;
 }
+.menu-container .menu-list li a {
+  display: block;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: black;
+  transition: background-color 0.2s, color 0.2s;
+}
+.menu-container .menu-list li a:hover {
+  background-color: #35CEE4;
+  color: white;
+  border-radius: 4px;
+}
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.nav-link {
+  display: block;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: black;
+  transition: background-color 0.2s, color 0.2s;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.nav-link:hover {
+  background-color: #35CEE4;
+  color: white;
+  border-radius: 4px;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.nav-link.active {
+  background-color: #35CEE4;
+  color: white;
+  border-radius: 4px;
+  font-weight: 500;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.main-content {
+  flex: 1;
+  padding: 1rem;
+}
+
+.todayMovies-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.searchbar {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.searchbar h2 {
+  margin-bottom: 1rem;
+}
+.searchbar .search-input {
+  padding: 0.5rem 1rem;
+  width: 100%;
+  max-width: 400px;
+  border: 2px solid #35CEE4;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.searchbar .search-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(53, 206, 228, 0.3);
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 580px) {
+  .movies-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  to {
-    transform: rotate(360deg);
+}
+@media (min-width: 780px) {
+  .movies-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1000px) {
+  .movies-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.movie-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
 }
-
-.card {
-  padding: 2em;
+.movie-card:hover {
+  transform: translateY(-4px);
 }
-
-.read-the-docs {
-  color: #888;
+.movie-card h2 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
 }
+.movie-card .movie-poster {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+.movie-card .movie-description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}/*# sourceMappingURL=App.css.map */
