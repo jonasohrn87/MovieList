@@ -1,35 +1,123 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  NavLink,
+} from "react-router-dom";
+import "./App.css";
+import TodayMovies from "./components/TodayMovies.jsx";
+import MovieNights from "./components/MovieNights.jsx";
+import UpcomingMovies from "./components/UpcomingMovies.jsx";
+import LiveCommunityChat from "./components/LiveCommunityChat.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      <div className="main-container">
+        <nav className="menu-container">
+          <ul className="menu-list">
+            <li>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+                end
+              >
+                Hem
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/filmtraffar"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+                end
+              >
+                Filmträffar
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/topplistor"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+                end
+              >
+                Topplistor
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/kommande"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+                end
+              >
+                Kommande
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/recensioner"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+                end
+              >
+                Recensioner
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/livecommunitychat"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+                end
+              >
+                Live community chat
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/kontakt"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+                end
+              >
+                Kontakt
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/omoss"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+                end
+              >
+                Om oss
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
+        <div className="main-content">
+          <Routes>
+            <Route path="/" element={<TodayMovies />} />
+            <Route path="/filmtraffar" element={<MovieNights />} />
+            <Route path="/kommande" element={<UpcomingMovies />} />
+            <Route path="/livecommunitychat" element={<LiveCommunityChat />} />
+          </Routes>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
