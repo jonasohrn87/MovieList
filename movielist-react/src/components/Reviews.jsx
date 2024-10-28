@@ -27,15 +27,19 @@ const Reviews = () => {
 
     return (
         <div className="reviews-container">
-            <input
+            <div className="searchbar">
+                <h2>Recensioner</h2>
+                <input
                 type="text"
                 placeholder="Sök recensioner..."
                 value={searchReview}
                 onChange={(e) => setSearchReview(e.target.value)}
-            />
-            <ul>
+                className="search-input"
+                />
+            </div>
+            <div className = "reviews-grid">
                 {searchFilter.map((review) => (
-                    <div key={review.id}>
+                    <div key={review.id} className="review-card">
                         <h2>{review.title}</h2>
                         <p>{review.review}</p>
                         <p>Betyg: {review.rating}</p>
@@ -47,7 +51,7 @@ const Reviews = () => {
                         )}
                     </div>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 };
