@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "movies",
+  "collectionName": "movie_nights",
   "info": {
-    "singularName": "movie",
-    "pluralName": "movies",
-    "displayName": "Movie",
+    "singularName": "movie-night",
+    "pluralName": "movie-nights",
+    "displayName": "movieNight",
     "description": ""
   },
   "options": {
@@ -12,11 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
+    "titleDescription": {
+      "type": "text",
+      "required": false
     },
-    "poster": {
+    "image": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -31,18 +31,17 @@
       "type": "richtext",
       "required": true
     },
-    "release": {
-      "type": "date",
-      "default": "2024-10-28",
+    "dateTime": {
+      "type": "datetime",
       "required": true
     },
-    "watched": {
-      "type": "boolean"
+    "title": {
+      "type": "string",
+      "required": true
     },
-    "rating": {
-      "type": "integer",
-      "max": 5,
-      "min": 1
+    "eventCreater": {
+      "type": "string",
+      "required": true
     },
     "genre": {
       "type": "customField",
@@ -62,6 +61,8 @@
         "Western",
         "Äventyr"
       ],
+      "required": true,
+      "min": 1,
       "customField": "plugin::multi-select.multi-select"
     }
   }
