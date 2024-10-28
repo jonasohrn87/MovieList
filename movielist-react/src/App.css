@@ -8,12 +8,15 @@ body {
   background-color: #D0E4E7;
   color: black;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .main-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  width: 100vw;
+  max-width: 1400px;
+  padding: 0 1rem;
 }
 
 .menu-container {
@@ -146,4 +149,59 @@ body {
 .movie-card .movie-description {
   font-size: 0.9rem;
   line-height: 1.5;
+}
+
+.chat-messages-container {
+  padding: 1rem;
+}
+.chat-messages-container .chat-messages-box {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 7px;
+  background-color: #f2f8f7;
+  max-height: calc(100vh - 200px);
+  margin-bottom: 1rem;
+}
+.chat-messages-container .chat-messages-box .chat-messages-time-user {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #646262;
+  margin-bottom: 0.3rem;
+}
+.chat-messages-container .chat-messages-box .chat-messages-time-user .chat-messages-time {
+  font-weight: bold;
+}
+.chat-messages-container .chat-messages-box .chat-messages-time-user .chat-messages-user {
+  opacity: 0.7;
+}
+.chat-messages-container .chat-messages-box .chat-messages-time-user .chat-messages-text {
+  color: #353434;
+}
+
+.chat-input-container {
+  display: flex;
+  gap: 10px;
+  padding: 1rem;
+  background-color: #f2f8f7;
+  border-radius: 6px;
+  position: sticky;
+  bottom: 0;
+}
+.chat-input-container .chat-input-field {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.chat-input-container .chat-submit-btn {
+  padding: 0.5rem 1rem;
+  background-color: #3ac9db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+.chat-input-container .chat-submit-btn:hover {
+  background-color: #219aaa;
 }/*# sourceMappingURL=App.css.map */
