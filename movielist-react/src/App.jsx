@@ -10,6 +10,7 @@ import TodayMovies from "./components/TodayMovies.jsx";
 import MovieNights from "./components/MovieNights.jsx";
 import UpcomingMovies from "./components/UpcomingMovies.jsx";
 import LiveCommunityChat from "./components/LiveCommunityChat.jsx";
+import Reviews from "./components/Reviews.jsx";
 
 function App() {
   return (
@@ -113,6 +114,7 @@ function App() {
             <Route path="/filmtraffar" element={<MovieNights />} />
             <Route path="/kommande" element={<UpcomingMovies />} />
             <Route path="/livecommunitychat" element={<LiveCommunityChat />} />
+            <Route path="/recensioner" element={<Reviews />} />
           </Routes>
         </div>
       </div>
