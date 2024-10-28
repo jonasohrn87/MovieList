@@ -162,3 +162,9 @@ body {
     line-height: 1.5;
   }
 }
+
+.movieNights-innerContainer{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}

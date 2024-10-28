@@ -146,4 +146,10 @@ body {
 .movie-card .movie-description {
   font-size: 0.9rem;
   line-height: 1.5;
+}
+
+.movieNights-innerContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }/*# sourceMappingURL=App.css.map */
