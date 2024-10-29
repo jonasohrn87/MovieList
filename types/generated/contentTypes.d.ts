@@ -411,6 +411,7 @@ export interface ApiMovieNightMovieNight extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    cost: Schema.Attribute.Decimal;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -452,6 +453,7 @@ export interface ApiMovieNightMovieNight extends Struct.CollectionTypeSchema {
       'api::movie-night.movie-night'
     > &
       Schema.Attribute.Private;
+    location: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     titleDescription: Schema.Attribute.Text;
