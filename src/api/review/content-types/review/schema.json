@@ -34,6 +34,12 @@
     },
     "review": {
       "type": "richtext"
+    },
+    "movie": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::movie.movie",
+      "mappedBy": "review"
     }
   }
 }

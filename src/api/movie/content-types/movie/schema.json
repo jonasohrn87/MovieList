@@ -63,6 +63,12 @@
         "Äventyr"
       ],
       "customField": "plugin::multi-select.multi-select"
+    },
+    "review": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::review.review",
+      "inversedBy": "movie"
     }
   }
 }

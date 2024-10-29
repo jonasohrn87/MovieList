@@ -516,6 +516,7 @@ export interface ApiMovieMovie extends Struct.CollectionTypeSchema {
     release: Schema.Attribute.Date &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'2024-10-28'>;
+    review: Schema.Attribute.Relation<'oneToOne', 'api::review.review'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -546,6 +547,7 @@ export interface ApiReviewReview extends Struct.CollectionTypeSchema {
       'api::review.review'
     > &
       Schema.Attribute.Private;
+    movie: Schema.Attribute.Relation<'oneToOne', 'api::movie.movie'>;
     publishedAt: Schema.Attribute.DateTime;
     rating: Schema.Attribute.Integer &
       Schema.Attribute.Required &

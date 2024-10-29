@@ -73,7 +73,7 @@ function App() {
               </li>
               <li>
                 <NavLink
-                  to="/recensioner"
+                  to="/recensioner/"
                   className={({ isActive }) =>
                     isActive ? "nav-link active" : "nav-link"
                   }
@@ -127,7 +127,7 @@ function App() {
                 element={<LiveCommunityChat />}
               />
               <Route path="/movie" element={<Movie />} />
-              <Route path="/recensioner" element={<Reviews />} />
+              <Route path="/recensioner/" element={<Reviews />} />
             </Routes>
           </div>
         </div>

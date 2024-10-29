@@ -35,7 +35,7 @@ const Movie = () => {
             <p className="movie-description">
               {movie.description.substring(0, 200) + "..."}
               <NavLink
-                to={"/movie"}
+                to={"/movie/"} // + movie.id ska ligga med här
                 end
                 onClick={() => handleMovieClick(movie)}
               >

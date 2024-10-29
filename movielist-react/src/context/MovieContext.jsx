@@ -52,6 +52,16 @@ const MovieProvider = ({ children }) => {
     setSelectedMovie(movie);
   };
 
+  const searchReviews = reviews
+    .filter(
+      (review) =>
+        review.title?.toLowerCase().includes(searchMovie.toLowerCase()) ||
+        review.genre.some((genre) =>
+          genre.toLowerCase().includes(searchMovie.toLowerCase())
+        )
+    )
+    .sort((a, b) => a.title.localeCompare(b.title));
+  
   return (
     <MovieContext.Provider
       value={{
@@ -63,6 +73,7 @@ const MovieProvider = ({ children }) => {
         setSearchMovie,
         searchFilter,
         reviews,
+        searchReviews,
       }}
     >
       {children}
