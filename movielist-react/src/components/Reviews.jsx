@@ -47,6 +47,7 @@ const Reviews = () => {
                             <img
                                 src={`http://localhost:1337${review.image.url}`}
                                 alt={`${review.title} image`}
+                                className="review-image"
                             />
                         )}
                         <p>{review.review}</p>
