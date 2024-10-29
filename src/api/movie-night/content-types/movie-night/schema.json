@@ -64,6 +64,12 @@
       "required": true,
       "min": 1,
       "customField": "plugin::multi-select.multi-select"
+    },
+    "location": {
+      "type": "string"
+    },
+    "cost": {
+      "type": "decimal"
     }
   }
 }
