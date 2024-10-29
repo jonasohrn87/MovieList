@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import Movie from "./Movie.jsx";
 import "../App.css";
 
 const TodayMovies = ({ onMovieClick }) => {
@@ -46,26 +46,7 @@ const TodayMovies = ({ onMovieClick }) => {
           className="search-input"
         />
       </div>
-      <div className="movies-grid">
-        {searchFilter.map((movie) => (
-          <div key={movie.id} className="movie-card">
-            <h2>{movie.title}</h2>
-            {movie.poster && (
-              <img
-                src={`http://localhost:1337${movie.poster.url}`}
-                alt={`${movie.title} poster`}
-                className="movie-poster"
-              />
-            )}
-            <p className="movie-description">
-              {movie.description.substring(0, 200) + "..."}
-              <NavLink to={"/movie"} end onClick={() => handleClick(movie)}>
-                Läs mer ➡️
-              </NavLink>
-            </p>
-          </div>
-        ))}
-      </div>
+      <Movie filter={searchFilter} handleClick={handleClick} />
     </div>
   );
 };
