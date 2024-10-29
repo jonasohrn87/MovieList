@@ -1,39 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Movie from "./Movie.jsx";
 import "../App.css";
+import { MovieContext } from "../context/MovieContext.jsx";
 
-const TodayMovies = ({ onMovieClick }) => {
-  const [movies, setMovies] = useState([]);
-  const [searchMovie, setSearchMovie] = useState("");
+const TodayMovies = () => {
+  const { searchMovie, setSearchMovie, setSelectedMovie } =
+    useContext(MovieContext);
 
-  const handleClick = (movie) => {
-    onMovieClick(movie);
-  };
-
-  useEffect(() => {
-    const fetchMovies = async () => {
-      const response = await fetch(
-        "http://localhost:1337/api/movies?populate=*",
-        {}
-      );
-      const data = await response.json();
-      if (data.data) {
-        setMovies(data.data);
-      }
-    };
-    fetchMovies();
-  }, []);
-
-  const searchFilter = movies
-    .filter(
-      (movie) =>
-        movie.title?.toLowerCase().includes(searchMovie.toLowerCase()) ||
-        movie.genre.some((genre) =>
-          genre.toLowerCase().includes(searchMovie.toLowerCase())
-        )
-    )
-    .sort((a, b) => a.title.localeCompare(b.title));
-
+  setSelectedMovie(null);
   return (
     <div className="todayMovies-container">
       <div className="searchbar">
@@ -46,7 +20,7 @@ const TodayMovies = ({ onMovieClick }) => {
           className="search-input"
         />
       </div>
-      <Movie filter={searchFilter} handleClick={handleClick} />
+      <Movie />
     </div>
   );
 };

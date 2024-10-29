@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import "../App.css";
+import { MovieContext } from "../context/MovieContext.jsx";
 
-const Movie = (props) => {
+const Movie = () => {
+  const { searchFilter, handleMovieClick, selectedMovie } =
+    useContext(MovieContext);
+
   return (
     <div className="movies-grid">
-      {props.filter ? (
-        props.filter.map((movie) => (
+      {selectedMovie ? (
+        <div key={selectedMovie.id} className="movie-card">
+          <h2>{selectedMovie.title}</h2>
+          {selectedMovie.poster && (
+            <img
+              src={`http://localhost:1337${selectedMovie.poster.url}`}
+              alt={`${selectedMovie.title} poster`}
+              className="movie-poster"
+            />
+          )}
+          <p className="movie-description">{selectedMovie.description}</p>
+        </div>
+      ) : (
+        searchFilter.map((movie) => (
           <div key={movie.id} className="movie-card">
             <h2>{movie.title}</h2>
             {movie.poster && (
@@ -21,25 +37,13 @@ const Movie = (props) => {
               <NavLink
                 to={"/movie"}
                 end
-                onClick={() => props.handleClick(movie)}
+                onClick={() => handleMovieClick(movie)}
               >
                 Läs mer ➡️
               </NavLink>
             </p>
           </div>
         ))
-      ) : (
-        <div key={props.movie.id} className="movie-card">
-          <h2>{props.movie.title}</h2>
-          {props.movie.poster && (
-            <img
-              src={`http://localhost:1337${props.movie.poster.url}`}
-              alt={`${props.movie.title} poster`}
-              className="movie-poster"
-            />
-          )}
-          <p className="movie-description">{props.movie.description}</p>
-        </div>
       )}
     </div>
   );
