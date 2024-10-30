@@ -63,6 +63,9 @@
         "Äventyr"
       ],
       "customField": "plugin::multi-select.multi-select"
+    },
+    "review": {
+      "type": "richtext"
     }
   }
 }

@@ -12,25 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "rating": {
       "type": "integer",
       "required": true,
       "min": 1,
       "max": 5
-    },
-    "title": {
-      "type": "string"
     },
     "review": {
       "type": "richtext"
