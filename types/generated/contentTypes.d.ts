@@ -369,6 +369,42 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
+  collectionName: 'about_uses';
+  info: {
+    description: '';
+    displayName: 'About us';
+    pluralName: 'about-uses';
+    singularName: 'about-us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    aboutFoto: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    aboutIntro: Schema.Attribute.Text;
+    aboutTextJohnny: Schema.Attribute.Text;
+    aboutTextJonas: Schema.Attribute.Text;
+    aboutTextNikos: Schema.Attribute.Text;
+    aboutTextOlle: Schema.Attribute.Text;
+    aboutTextRasmus: Schema.Attribute.Text;
+    aboutTitle: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-us.about-us'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFooterFooter extends Struct.CollectionTypeSchema {
   collectionName: 'footers';
   info: {
@@ -549,7 +585,6 @@ export interface ApiMovieMovie extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    watched: Schema.Attribute.Boolean;
   };
 }
 
@@ -1058,6 +1093,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::footer.footer': ApiFooterFooter;
       'api::live-community-chat.live-community-chat': ApiLiveCommunityChatLiveCommunityChat;
       'api::movie-night.movie-night': ApiMovieNightMovieNight;

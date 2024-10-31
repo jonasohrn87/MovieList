@@ -1,14 +1,30 @@
 import React, { createContext, useState, useEffect } from "react";
 
 // @ts-ignore
-  const MovieContext = createContext();
+const MovieContext = createContext();
 
-  const MovieProvider = ({ children }) => {
+const MovieProvider = ({ children }) => {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [movies, setMovies] = useState([]);
   const [searchMovie, setSearchMovie] = useState("");
   const [reviews, setReviews] = useState([]);
   const [footer, setFooter] = useState([]);
+  const [about, setAbout] = useState({});
+
+  useEffect(() => {
+    const fetchAboutUs = async () => {
+      const response = await fetch(
+        "http://localhost:1337/api/about-us?populate=*",
+        {}
+      );
+      const data = await response.json();
+      if (data.data) {
+        setAbout(data.data);
+      }
+    };
+    fetchAboutUs();
+    console.log("Context", about);
+  }, []);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -30,14 +46,13 @@ import React, { createContext, useState, useEffect } from "react";
         "http://localhost:1337/api/footers?populate=*",
         {}
       );
-      const data = await response.json()
+      const data = await response.json();
       if (data.data) {
-        setFooter(data.data)
-      };
+        setFooter(data.data);
+      }
     };
     fetchFooter();
   }, []);
-
 
   useEffect(() => {
     const fetchReviews = async () => {
@@ -80,6 +95,7 @@ import React, { createContext, useState, useEffect } from "react";
         searchFilter,
         reviews,
         footer,
+        about,
       }}
     >
       {children}
