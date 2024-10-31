@@ -11,7 +11,6 @@ const TodayMovies = () => {
   return (
     <div className="todayMovies-container">
       <div className="searchbar">
-        <h2>Våra filmer</h2>
         <input
           type="text"
           placeholder="Sök filmer..."

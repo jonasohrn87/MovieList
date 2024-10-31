@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -12,7 +12,10 @@ import UpcomingMovies from "./components/UpcomingMovies.jsx";
 import LiveCommunityChat from "./components/LiveCommunityChat.jsx";
 import Movie from "./components/Movie.jsx";
 import Reviews from "./components/Reviews.jsx";
+import Footer from "./components/Footer.jsx";
 import { MovieProvider } from "./context/MovieContext.jsx";
+import User from "./components/User.jsx";
+import { BiSolidCameraMovie } from "react-icons/bi";
 
 function App() {
   const [selectedMovie, setSelectedMovie] = useState(null);
@@ -25,6 +28,16 @@ function App() {
     <MovieProvider>
       <Router>
         <div className="main-container">
+          <header className="header-container">
+          <div className="header-container-inner">
+          <BiSolidCameraMovie />
+            <h4>MovieList</h4>
+            </div>
+            <NavLink to="/user">
+            {/* <User /> */}
+            <button>Logga in</button>
+            </NavLink>
+            </header>
           <nav className="menu-container">
             <ul className="menu-list">
               <li>
@@ -128,8 +141,10 @@ function App() {
               />
               <Route path="/movie" element={<Movie />} />
               <Route path="/recensioner" element={<Reviews />} />
+              <Route path="/user" element={<User />} />
             </Routes>
           </div>
+          <Footer />
         </div>
       </Router>
     </MovieProvider>
