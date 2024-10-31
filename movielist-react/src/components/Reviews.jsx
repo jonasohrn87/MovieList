@@ -8,7 +8,6 @@ const Reviews = () => {
   return (
     <div className="reviews-container">
       <div className="searchbar">
-        <h2>Recensioner</h2>
         <input
           type="text"
           placeholder="Sök recensioner..."

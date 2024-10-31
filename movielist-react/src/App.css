@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #d0e4e7;
+  background-color: #c4d7da;
   color: black;
   min-height: 100vh;
   display: flex;
@@ -20,6 +20,21 @@ body {
   width: 100vw;
   max-width: 1400px;
   padding: 0 1rem;
+  background-color: #d0e4e7;
+}
+
+.header-container {
+  display: flex;
+  flex-basis: auto;
+  background-color: rgb(231, 238, 238);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  justify-content: space-between;
+}
+.header-container .header-container-inner {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .menu-container {

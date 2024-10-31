@@ -60,8 +60,6 @@ const LiveCommunityChat = () => {
 
   return (
     <div className="liveCommunityChat-container">
-      <h2>Live Community Chat</h2>
-
       <div className="chat-messages-container">
         {messages.map((message) => (
           <div key={message.id} className="chat-messages-box">
