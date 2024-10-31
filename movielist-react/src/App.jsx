@@ -42,7 +42,7 @@ function App() {
             <ul className="menu-list">
               <li>
                 <NavLink
-                  to="/"
+                  to="/home"
                   className={({ isActive }) =>
                     isActive ? "nav-link active" : "nav-link"
                   }
@@ -132,14 +132,14 @@ function App() {
           </nav>
           <div className="main-content">
             <Routes>
-              <Route path="/" element={<TodayMovies />} />
+              <Route path="/home" element={<TodayMovies />} />
               <Route path="/filmtraffar" element={<MovieNights />} />
               <Route path="/kommande" element={<UpcomingMovies />} />
               <Route
                 path="/livecommunitychat"
                 element={<LiveCommunityChat />}
               />
-              <Route path="/movie" element={<Movie />} />
+              <Route path="/movie/" element={<Movie />} />
               <Route path="/recensioner" element={<Reviews />} />
               <Route path="/user" element={<User />} />
             </Routes>
