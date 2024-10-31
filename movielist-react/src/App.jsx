@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -12,6 +12,7 @@ import UpcomingMovies from "./components/UpcomingMovies.jsx";
 import LiveCommunityChat from "./components/LiveCommunityChat.jsx";
 import Movie from "./components/Movie.jsx";
 import Reviews from "./components/Reviews.jsx";
+import Footer from "./components/Footer.jsx";
 import { MovieProvider } from "./context/MovieContext.jsx";
 
 function App() {
@@ -130,6 +131,7 @@ function App() {
               <Route path="/recensioner" element={<Reviews />} />
             </Routes>
           </div>
+          <Footer />
         </div>
       </Router>
     </MovieProvider>

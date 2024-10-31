@@ -14,6 +14,9 @@ body {
 }
 
 .main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   width: 100vw;
   max-width: 1400px;
   padding: 0 1rem;
@@ -73,6 +76,25 @@ body {
   color: white;
   border-radius: 4px;
   font-weight: 500;
+}
+
+.footer-container {
+  margin-top: auto;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.footer-container .footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  text-align: center;
+  margin: 0.5rem;
+  font-weight: bold;
+}
+.footer-container .footer-content .footer-content-contact {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .main-content {
