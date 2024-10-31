@@ -39,19 +39,19 @@ import React, { createContext, useState, useEffect } from "react";
   }, []);
 
 
-  useEffect(() => {
-    const fetchReviews = async () => {
-      const response = await fetch(
-        "http://localhost:1337/api/reviews?populate=*",
-        {}
-      );
-      const data = await response.json();
-      if (data.data) {
-        setReviews(data.data);
-      }
-    };
-    fetchReviews();
-  }, []);
+  // useEffect(() => {
+  //   const fetchReviews = async () => {
+  //     const response = await fetch(
+  //       "http://localhost:1337/api/reviews?populate=*",
+  //       {}
+  //     );
+  //     const data = await response.json();
+  //     if (data.data) {
+  //       setReviews(data.data);
+  //     }
+  //   };
+  //   fetchReviews();
+  // }, []);
 
   const searchFilter = movies
     .filter(

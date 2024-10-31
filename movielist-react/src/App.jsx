@@ -11,7 +11,7 @@ import MovieNights from "./components/MovieNights.jsx";
 import UpcomingMovies from "./components/UpcomingMovies.jsx";
 import LiveCommunityChat from "./components/LiveCommunityChat.jsx";
 import Movie from "./components/Movie.jsx";
-import Reviews from "./components/Reviews.jsx";
+// import Reviews from "./components/Reviews.jsx";
 import Footer from "./components/Footer.jsx";
 import { MovieProvider } from "./context/MovieContext.jsx";
 import User from "./components/User.jsx";
@@ -89,7 +89,7 @@ function App() {
                   Kommande
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink
                   to="/recensioner"
                   className={({ isActive }) =>
@@ -99,7 +99,7 @@ function App() {
                 >
                   Recensioner
                 </NavLink>
-              </li>
+              </li> */}
               <li>
                 <NavLink
                   to="/livecommunitychat"
@@ -145,7 +145,7 @@ function App() {
                 element={<LiveCommunityChat />}
               />
               <Route path="/movie/" element={<Movie />} />
-              <Route path="/recensioner" element={<Reviews />} />
+              {/* <Route path="/recensioner" element={<Reviews />} /> */}
               <Route path="/user" element={<User />} />
             </Routes>
           </div>

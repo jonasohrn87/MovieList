@@ -20,6 +20,7 @@ const Movie = () => {
             />
           )}
           <p className="movie-description">{selectedMovie.description}</p>
+          <p className="movie-review">{selectedMovie.review}</p>
         </div>
       ) : (
         searchFilter.map((movie) => (
