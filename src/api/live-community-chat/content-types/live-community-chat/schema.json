@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "live_community_chats",
+  "info": {
+    "singularName": "live-community-chat",
+    "pluralName": "live-community-chats",
+    "displayName": "Live Community Chat",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "chat": {
+      "type": "richtext"
+    }
+  }
+}

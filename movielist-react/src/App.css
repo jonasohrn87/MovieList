@@ -5,15 +5,44 @@
 }
 
 body {
-  background-color: #D0E4E7;
+  background-color: #c4d7da;
   color: black;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .main-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  width: 100vw;
+  max-width: 1400px;
+  padding: 0 1rem;
+  background-color: #d0e4e7;
+}
+
+.header-container {
+  display: flex;
+  flex-basis: auto;
+  background-color: rgb(231, 238, 238);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
+  justify-content: space-between;
+}
+.header-container .header-container-inner {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.header-container .header-container-inner .logoImage {
+  height: 60px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.header-container .header-container-inner h2 {
+  font-size: 30px;
 }
 
 .menu-container {
@@ -48,7 +77,7 @@ body {
   transition: background-color 0.2s, color 0.2s;
 }
 .menu-container .menu-list li a:hover {
-  background-color: #35CEE4;
+  background-color: #35cee4;
   color: white;
   border-radius: 4px;
 }
@@ -61,15 +90,34 @@ body {
   transition: background-color 0.2s, color 0.2s;
 }
 .nav-link:hover {
-  background-color: #35CEE4;
+  background-color: #35cee4;
   color: white;
   border-radius: 4px;
 }
 .nav-link.active {
-  background-color: #35CEE4;
+  background-color: #35cee4;
   color: white;
   border-radius: 4px;
   font-weight: 500;
+}
+
+.footer-container {
+  margin-top: auto;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.footer-container .footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  text-align: center;
+  margin: 0.5rem;
+  font-weight: bold;
+}
+.footer-container .footer-content .footer-content-contact {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .main-content {
@@ -93,7 +141,7 @@ body {
   padding: 0.5rem 1rem;
   width: 100%;
   max-width: 400px;
-  border: 2px solid #35CEE4;
+  border: 2px solid #35cee4;
   border-radius: 4px;
   font-size: 1rem;
 }
@@ -146,4 +194,163 @@ body {
 .movie-card .movie-description {
   font-size: 0.9rem;
   line-height: 1.5;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 580px) {
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 780px) {
+  .reviews-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1000px) {
+  .reviews-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.review-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+.review-card:hover {
+  transform: translateY(-4px);
+}
+.review-card h2 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+.review-card .review-image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+.review-card .review-description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.movieNights-container {
+  display: grid;
+  gap: 2rem;
+  padding: 1rem;
+}
+.movieNights-container .date-title-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  border-top: 5px solid #1f9eb2;
+}
+.movieNights-container .movieNights-title {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.movieNights-innerContainer {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.image-price-location-container {
+  display: grid;
+}
+.image-price-location-container .price-location {
+  display: flex;
+  justify-content: space-around;
+}
+
+.movieNights-image {
+  width: 100%;
+  height: 100%;
+  max-height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 4px;
+}
+
+.show-more-text {
+  color: #007bff;
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: underline;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  display: inline-block;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.show-more-text:hover {
+  background-color: #007bff;
+  color: white;
+  border-color: #0056b3;
+}
+
+.chat-messages-container {
+  padding: 1rem;
+}
+.chat-messages-container .chat-messages-box {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 7px;
+  background-color: #f2f8f7;
+  max-height: calc(100vh - 200px);
+  margin-bottom: 1rem;
+}
+.chat-messages-container .chat-messages-box .chat-messages-time-user {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #646262;
+  margin-bottom: 0.3rem;
+}
+.chat-messages-container .chat-messages-box .chat-messages-time-user .chat-messages-time {
+  font-weight: bold;
+}
+.chat-messages-container .chat-messages-box .chat-messages-time-user .chat-messages-user {
+  opacity: 0.7;
+}
+.chat-messages-container .chat-messages-box .chat-messages-time-user .chat-messages-text {
+  color: #353434;
+}
+
+.chat-input-container {
+  display: flex;
+  gap: 10px;
+  padding: 1rem;
+  background-color: #f2f8f7;
+  border-radius: 6px;
+  position: sticky;
+  bottom: 0;
+}
+.chat-input-container .chat-input-field {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.chat-input-container .chat-submit-btn {
+  padding: 0.5rem 1rem;
+  background-color: #3ac9db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+.chat-input-container .chat-submit-btn:hover {
+  background-color: #219aaa;
 }/*# sourceMappingURL=App.css.map */
