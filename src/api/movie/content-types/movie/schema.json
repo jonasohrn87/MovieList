@@ -36,9 +36,6 @@
       "default": "2024-10-28",
       "required": true
     },
-    "watched": {
-      "type": "boolean"
-    },
     "rating": {
       "type": "integer",
       "max": 5,
