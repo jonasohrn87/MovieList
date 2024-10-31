@@ -40,14 +40,25 @@ body {
   flex-basis: auto;
   background-color: rgb(231, 238, 238);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
+  padding: 0.5rem;
   justify-content: space-between;
 
   .header-container-inner {
     display: flex;
     gap: 0.5rem;
     align-items: center;
+
+    .logoImage{
+      height: 60px;
+      object-fit: cover;
+    }
+
+    h2 {
+      font-size: 30px;
+    }
   }
+
+  
 }
 
 .menu-container {
@@ -118,12 +129,12 @@ body {
   margin-top: auto;
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
+
   .footer-content {
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
-    text-align: center;    
+    text-align: center;
     margin: 0.5rem;
     font-weight: bold;
 
@@ -268,17 +279,17 @@ body {
   padding: 1rem;
 
   .date-title-container {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center; 
-  gap: 1rem;
-  border-top: 5px solid #1f9eb2;
-}
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1rem;
+    border-top: 5px solid #1f9eb2;
+  }
 
-.movieNights-title {
-  font-size: 1.5rem;
-  margin: 0;
-}
+  .movieNights-title {
+    font-size: 1.5rem;
+    margin: 0;
+  }
 }
 
 .movieNights-innerContainer {
@@ -291,8 +302,8 @@ body {
 .image-price-location-container {
   display: grid;
 
-  .price-location{
-    display:flex;
+  .price-location {
+    display: flex;
     justify-content: space-around;
   }
 }
@@ -306,18 +317,21 @@ body {
 }
 
 .show-more-text {
-  color: #007BFF;
+  color: #007bff;
   cursor: pointer;
   font-size: 1rem;
   text-decoration: underline;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   display: inline-block;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    border-color 0.3s;
 }
 
 .show-more-text:hover {
-  background-color: #007BFF;
+  background-color: #007bff;
   color: white;
   border-color: #0056b3;
 }

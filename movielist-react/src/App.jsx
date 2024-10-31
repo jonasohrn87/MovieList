@@ -16,6 +16,8 @@ import Footer from "./components/Footer.jsx";
 import { MovieProvider } from "./context/MovieContext.jsx";
 import User from "./components/User.jsx";
 import { BiSolidCameraMovie } from "react-icons/bi";
+// @ts-ignore
+import MLlogo from "./assets/MLlogo.png";
 
 function App() {
   const [selectedMovie, setSelectedMovie] = useState(null);
@@ -30,8 +32,11 @@ function App() {
         <div className="main-container">
           <header className="header-container">
           <div className="header-container-inner">
-          <BiSolidCameraMovie />
-            <h4>MovieList</h4>
+          {/* <BiSolidCameraMovie /> */}
+          <img className="logoImage"
+             src={MLlogo} alt="image of logo" 
+            />
+            <h2>MovieList</h2>
             </div>
             <NavLink to="/user">
             {/* <User /> */}
