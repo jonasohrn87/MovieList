@@ -17,7 +17,7 @@ $screenSize-large: 1000px;
 }
 
 body {
-  background-color: $background;
+  background-color: #c4d7da;
   color: $primary-color;
   min-height: 100vh;
   display: flex;
@@ -26,9 +26,28 @@ body {
 }
 
 .main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   width: 100vw;
   max-width: 1400px;
   padding: 0 1rem;
+  background-color: $background;
+}
+
+.header-container {
+  display: flex;
+  flex-basis: auto;
+  background-color: rgb(231, 238, 238);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  justify-content: space-between;
+
+  .header-container-inner {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
 }
 
 .menu-container {
@@ -92,6 +111,27 @@ body {
     color: white;
     border-radius: 4px;
     font-weight: 500;
+  }
+}
+
+.footer-container {
+  margin-top: auto;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    text-align: center;    
+    margin: 0.5rem;
+    font-weight: bold;
+
+    .footer-content-contact {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
   }
 }
 
