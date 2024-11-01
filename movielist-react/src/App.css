@@ -28,13 +28,21 @@ body {
   flex-basis: auto;
   background-color: rgb(231, 238, 238);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
+  padding: 0.5rem;
   justify-content: space-between;
 }
 .header-container .header-container-inner {
   display: flex;
   gap: 0.5rem;
   align-items: center;
+}
+.header-container .header-container-inner .logoImage {
+  height: 60px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.header-container .header-container-inner h2 {
+  font-size: 30px;
 }
 
 .avatar {
@@ -321,7 +329,7 @@ body {
 }
 
 .show-more-text {
-  color: #007BFF;
+  color: #007bff;
   cursor: pointer;
   font-size: 1rem;
   text-decoration: underline;
@@ -332,7 +340,7 @@ body {
 }
 
 .show-more-text:hover {
-  background-color: #007BFF;
+  background-color: #007bff;
   color: white;
   border-color: #0056b3;
 }
