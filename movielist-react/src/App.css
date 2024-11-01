@@ -129,7 +129,7 @@ body {
 
 .menu-container-mobile {
   display: none;
-  background-color: red;
+  background-color: white;
   padding: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -184,6 +184,15 @@ body {
   font-weight: 500;
 }
 
+@media (max-width: 768px) {
+  .menu-container-desktop {
+    display: none;
+  }
+  .menu-container-mobile {
+    display: flex;
+    background-color: red;
+  }
+}
 .footer-container {
   margin-top: auto;
   background-color: white;

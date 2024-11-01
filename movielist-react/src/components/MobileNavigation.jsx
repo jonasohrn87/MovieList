@@ -1,10 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
+import {MdOutlineMenu} from 'react-icons/md'
 
 const MobileNavigation= () => {
+  const Hamburger = <MdOutlineMenu className="HamburgerMenu"
+  size="30px" color="black"/>
+
 return (
 <nav className="menu-container-mobile">
+  {Hamburger}
             <ul className="menu-list">
               <li>
                 <NavLink
