@@ -13,6 +13,7 @@ import LiveCommunityChat from "./components/LiveCommunityChat.jsx";
 import Movie from "./components/Movie.jsx";
 import Reviews from "./components/Reviews.jsx";
 import Footer from "./components/Footer.jsx";
+import Contact from "./components/Contact.jsx";
 import { MovieProvider } from "./context/MovieContext.jsx";
 import User from "./components/User.jsx";
 import { BiSolidCameraMovie } from "react-icons/bi";
@@ -29,15 +30,15 @@ function App() {
       <Router>
         <div className="main-container">
           <header className="header-container">
-          <div className="header-container-inner">
-          <BiSolidCameraMovie />
-            <h4>MovieList</h4>
+            <div className="header-container-inner">
+              <BiSolidCameraMovie />
+              <h4>MovieList</h4>
             </div>
             <NavLink to="/user">
-            {/* <User /> */}
-            <button>Logga in</button>
+              {/* <User /> */}
+              <button>Logga in</button>
             </NavLink>
-            </header>
+          </header>
           <nav className="menu-container">
             <ul className="menu-list">
               <li>
@@ -139,6 +140,7 @@ function App() {
                 path="/livecommunitychat"
                 element={<LiveCommunityChat />}
               />
+              <Route path="/kontakt" element={<Contact />} />
               <Route path="/movie" element={<Movie />} />
               <Route path="/recensioner" element={<Reviews />} />
               <Route path="/user" element={<User />} />

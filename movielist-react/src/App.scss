@@ -118,12 +118,12 @@ body {
   margin-top: auto;
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
+
   .footer-content {
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
-    text-align: center;    
+    text-align: center;
     margin: 0.5rem;
     font-weight: bold;
 
@@ -262,23 +262,78 @@ body {
   }
 }
 
+.contact {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+
+  @media (min-width: $screenSize-small) {
+    grid-template-columns: 1fr 0.5fr;
+  }
+
+  @media (min-width: $screenSize-medium) {
+    grid-template-columns: 1fr 0.5fr;
+  }
+
+  @media (min-width: $screenSize-large) {
+    grid-template-columns: 1fr 0.5fr;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.35);
+    & input {
+      height: 2rem;
+      width: 15rem;
+      border-radius: 5px;
+      padding: 10px;
+      &:focus {
+        outline: none;
+        box-shadow: 0px 2px 4px rgba(105, 111, 161, 0.37);
+      }
+    }
+    & textarea {
+      border-radius: 5px;
+      resize: none;
+      padding: 10px;
+      &:focus {
+        outline: none;
+        box-shadow: 0px 2px 4px rgba(105, 111, 161, 0.37);
+      }
+    }
+    & button {
+      margin-top: 0.5rem;
+      width: 15rem;
+    }
+  }
+  .contact-info {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.35);
+    & p {
+      margin-top: 2rem;
+    }
+  }
+}
+
 .movieNights-container {
   display: grid;
   gap: 2rem;
   padding: 1rem;
 
   .date-title-container {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center; 
-  gap: 1rem;
-  border-top: 5px solid #1f9eb2;
-}
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1rem;
+    border-top: 5px solid #1f9eb2;
+  }
 
-.movieNights-title {
-  font-size: 1.5rem;
-  margin: 0;
-}
+  .movieNights-title {
+    font-size: 1.5rem;
+    margin: 0;
+  }
 }
 
 .movieNights-innerContainer {
@@ -291,8 +346,8 @@ body {
 .image-price-location-container {
   display: grid;
 
-  .price-location{
-    display:flex;
+  .price-location {
+    display: flex;
     justify-content: space-around;
   }
 }
@@ -306,18 +361,21 @@ body {
 }
 
 .show-more-text {
-  color: #007BFF;
+  color: #007bff;
   cursor: pointer;
   font-size: 1rem;
   text-decoration: underline;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   display: inline-block;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    border-color 0.3s;
 }
 
 .show-more-text:hover {
-  background-color: #007BFF;
+  background-color: #007bff;
   color: white;
   border-color: #0056b3;
 }

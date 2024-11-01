@@ -234,6 +234,63 @@ body {
   line-height: 1.5;
 }
 
+.contact {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 580px) {
+  .contact {
+    grid-template-columns: 1fr 0.5fr;
+  }
+}
+@media (min-width: 780px) {
+  .contact {
+    grid-template-columns: 1fr 0.5fr;
+  }
+}
+@media (min-width: 1000px) {
+  .contact {
+    grid-template-columns: 1fr 0.5fr;
+  }
+}
+.contact .contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.35);
+}
+.contact .contact-form input {
+  height: 2rem;
+  width: 15rem;
+  border-radius: 5px;
+  padding: 10px;
+}
+.contact .contact-form input:focus {
+  outline: none;
+  box-shadow: 0px 2px 4px rgba(105, 111, 161, 0.37);
+}
+.contact .contact-form textarea {
+  border-radius: 5px;
+  resize: none;
+  padding: 10px;
+}
+.contact .contact-form textarea:focus {
+  outline: none;
+  box-shadow: 0px 2px 4px rgba(105, 111, 161, 0.37);
+}
+.contact .contact-form button {
+  margin-top: 0.5rem;
+  width: 15rem;
+}
+.contact .contact-info {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.35);
+}
+.contact .contact-info p {
+  margin-top: 2rem;
+}
+
 .movieNights-container {
   display: grid;
   gap: 2rem;
@@ -276,7 +333,7 @@ body {
 }
 
 .show-more-text {
-  color: #007BFF;
+  color: #007bff;
   cursor: pointer;
   font-size: 1rem;
   text-decoration: underline;
@@ -287,7 +344,7 @@ body {
 }
 
 .show-more-text:hover {
-  background-color: #007BFF;
+  background-color: #007bff;
   color: white;
   border-color: #0056b3;
 }

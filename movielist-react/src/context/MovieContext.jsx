@@ -1,14 +1,16 @@
 import React, { createContext, useState, useEffect } from "react";
 
 // @ts-ignore
-  const MovieContext = createContext();
+const MovieContext = createContext();
 
-  const MovieProvider = ({ children }) => {
+const MovieProvider = ({ children }) => {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [movies, setMovies] = useState([]);
   const [searchMovie, setSearchMovie] = useState("");
   const [reviews, setReviews] = useState([]);
   const [footer, setFooter] = useState([]);
+  const [contactInfo, setContactInfo] = useState([]);
+  const [noRender, setNoRender] = useState(false);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -30,28 +32,41 @@ import React, { createContext, useState, useEffect } from "react";
         "http://localhost:1337/api/footers?populate=*",
         {}
       );
-      const data = await response.json()
+      const data = await response.json();
       if (data.data) {
-        setFooter(data.data)
-      };
+        setFooter(data.data);
+      }
     };
     fetchFooter();
   }, []);
 
+  // useEffect(() => {
+  //   const fetchReviews = async () => {
+  //     const response = await fetch(
+  //       "http://localhost:1337/api/reviews?populate=*",
+  //       {}
+  //     );
+  //     const data = await response.json();
+  //     if (data.data) {
+  //       setReviews(data.data);
+  //     }
+  //   };
+  //   fetchReviews();
+  // }, []);
 
   useEffect(() => {
-    const fetchReviews = async () => {
+    const fetchContactInfo = async () => {
       const response = await fetch(
-        "http://localhost:1337/api/reviews?populate=*",
+        "http://localhost:1337/api/contact-info?populate=*",
         {}
       );
       const data = await response.json();
       if (data.data) {
-        setReviews(data.data);
+        setContactInfo(data.data);
       }
     };
-    fetchReviews();
-  }, []);
+    fetchContactInfo();
+  }, [false]);
 
   const searchFilter = movies
     .filter(
@@ -80,6 +95,7 @@ import React, { createContext, useState, useEffect } from "react";
         searchFilter,
         reviews,
         footer,
+        contactInfo,
       }}
     >
       {children}
