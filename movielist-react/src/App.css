@@ -195,8 +195,12 @@ body {
   font-size: 0.9rem;
   line-height: 1.5;
 }
-.movie-card .movie-review {
-  width: 100%;
+
+.movie-review {
+  width: 200px;
+  background-color: blue;
+  border-radius: 8px;
+  margin-top: 1rem;
 }
 
 .movieNights-container {

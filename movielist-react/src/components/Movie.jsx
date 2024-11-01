@@ -24,7 +24,9 @@ const Movie = () => {
           <p className="movie-description">{selectedMovie.description}</p>
           </div>
           <div className="movie-review">
-      {selectedMovie.review}
+              Betyg: {selectedMovie.rating}
+              <br />
+              {selectedMovie.review}
             </div>
           </div>
       ) : (
