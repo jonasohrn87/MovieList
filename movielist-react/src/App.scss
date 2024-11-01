@@ -226,11 +226,19 @@ body {
   }
   
 }
+
+.movie-review-container{
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 1rem;
+
+}
 .movie-review {
-    width: 200px;
-    background-color: blue;
+    width: 100%;
+    background-color: white;
     border-radius: 8px;
-    margin-top: 1rem;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
 // .reviews-grid {
