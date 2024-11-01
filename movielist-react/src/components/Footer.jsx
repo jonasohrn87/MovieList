@@ -21,7 +21,7 @@ const Footer = () => {
           <FaLinkedin />
         </div>
         {footer.map((footer) => (
-          <p key={footer.id}>{footer.footerText}</p>
+          <p key={footer.id}>{footer ? footer.footerText : ""}</p>
         ))}
       </div>
     </footer>

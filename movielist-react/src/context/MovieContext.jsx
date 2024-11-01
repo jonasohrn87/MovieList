@@ -9,6 +9,8 @@ import React, { createContext, useState, useEffect } from "react";
   const [searchMovie, setSearchMovie] = useState("");
   const [reviews, setReviews] = useState([]);
   const [footer, setFooter] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -39,19 +41,51 @@ import React, { createContext, useState, useEffect } from "react";
   }, []);
 
 
+  // useEffect(() => {
+  //   const fetchReviews = async () => {
+  //     const response = await fetch(
+  //       "http://localhost:1337/api/reviews?populate=*",
+  //       {}
+  //     );
+  //     const data = await response.json();
+  //     if (data.data) {
+  //       setReviews(data.data);
+  //     }
+  //   };
+  //   fetchReviews();
+  // }, []);
+
   useEffect(() => {
-    const fetchReviews = async () => {
-      const response = await fetch(
-        "http://localhost:1337/api/reviews?populate=*",
-        {}
-      );
-      const data = await response.json();
-      if (data.data) {
-        setReviews(data.data);
-      }
-    };
-    fetchReviews();
+    checkUserLogin();
   }, []);
+
+  const checkUserLogin = () => {
+    try {
+      const userData = localStorage.getItem('user');
+      if (!userData) {
+        handleLogout();
+        return;
+      }
+
+      const userToObject = JSON.parse(userData);
+      setIsLoggedIn(true);
+      setUser(userToObject);
+    } catch (error) {
+      handleLogout();
+    }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    setUser(null);
+    setIsLoggedIn(false);
+  };
+
+  const login = (userData) => {
+    localStorage.setItem('user', JSON.stringify(userData));
+    setUser(userData);
+    setIsLoggedIn(true);
+  };
 
   const searchFilter = movies
     .filter(
@@ -80,6 +114,11 @@ import React, { createContext, useState, useEffect } from "react";
         searchFilter,
         reviews,
         footer,
+        isLoggedIn,
+        user,
+        login,
+        handleLogout,
+        checkAuthStatus: checkUserLogin
       }}
     >
       {children}

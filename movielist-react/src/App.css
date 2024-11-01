@@ -37,6 +37,51 @@ body {
   align-items: center;
 }
 
+.avatar {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.1rem solid rgb(35, 90, 92);
+  color: rgb(35, 90, 92);
+}
+
+.avatar > svg {
+  height: 50%;
+  width: 50%;
+  color: rgb(35, 90, 92);
+}
+
+.user-container {
+  padding: 1rem;
+}
+.user-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.user-container form input {
+  padding: 0.5rem;
+  border: 1px solid #d1cfcf;
+  border-radius: 4px;
+}
+.user-container form button {
+  padding: 0.5rem;
+  background-color: #35cee4;
+  border: none;
+  border-radius: 4px;
+}
+.user-container form button:hover {
+  background-color: #2ba8bc;
+}
+.user-container .userLoginError {
+  color: red;
+  margin-bottom: 1rem;
+}
+
 .menu-container {
   background-color: white;
   padding: 1rem;
