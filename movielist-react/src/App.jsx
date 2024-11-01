@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -13,11 +13,34 @@ import LiveCommunityChat from "./components/LiveCommunityChat.jsx";
 import Movie from "./components/Movie.jsx";
 import Reviews from "./components/Reviews.jsx";
 import Footer from "./components/Footer.jsx";
-import { MovieProvider } from "./context/MovieContext.jsx";
+import { MovieProvider, MovieContext } from "./context/MovieContext.jsx";
 import User from "./components/User.jsx";
-import { BiSolidCameraMovie } from "react-icons/bi";
 // @ts-ignore
 import MLlogo from "./assets/MLlogo.png";
+import { IoPersonSharp } from "react-icons/io5";
+
+const MovieHeader = () => {
+  const { isLoggedIn, user } = useContext(MovieContext);
+
+  let selectAvatar = "avatar " + "avatar-letters";
+
+  return (
+    <div>
+        <div>
+          <NavLink to="/user">
+            {isLoggedIn ? (
+              <span className={selectAvatar}>
+                <IoPersonSharp />
+                {user.username.charAt(0).toUpperCase()}
+              </span>
+            ) : (
+              <button>Logga in</button>
+            )}
+          </NavLink>
+        </div>
+    </div>
+  );
+};
 
 function App() {
   const [selectedMovie, setSelectedMovie] = useState(null);
@@ -32,16 +55,12 @@ function App() {
         <div className="main-container">
           <header className="header-container">
           <div className="header-container-inner">
-          {/* <BiSolidCameraMovie /> */}
           <img className="logoImage"
              src={MLlogo} alt="image of logo" 
             />
             <h2>MovieList</h2>
             </div>
-            <NavLink to="/user">
-            {/* <User /> */}
-            <button>Logga in</button>
-            </NavLink>
+            <MovieHeader />
             </header>
           <nav className="menu-container">
             <ul className="menu-list">
