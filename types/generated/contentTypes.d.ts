@@ -369,11 +369,11 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
+export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
   collectionName: 'about_uses';
   info: {
     description: '';
-    displayName: 'About us';
+    displayName: 'About Us';
     pluralName: 'about-uses';
     singularName: 'about-us';
   };
@@ -382,13 +382,8 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
   };
   attributes: {
     aboutFoto: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    aboutIntro: Schema.Attribute.Text;
-    aboutTextJohnny: Schema.Attribute.Text;
-    aboutTextJonas: Schema.Attribute.Text;
-    aboutTextNikos: Schema.Attribute.Text;
-    aboutTextOlle: Schema.Attribute.Text;
-    aboutTextRasmus: Schema.Attribute.Text;
-    aboutTitle: Schema.Attribute.String;
+    aboutName: Schema.Attribute.String;
+    aboutText: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

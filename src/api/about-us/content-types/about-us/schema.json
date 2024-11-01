@@ -1,10 +1,10 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "about_uses",
   "info": {
     "singularName": "about-us",
     "pluralName": "about-uses",
-    "displayName": "About us",
+    "displayName": "About Us",
     "description": ""
   },
   "options": {
@@ -12,37 +12,21 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "aboutTitle": {
+    "aboutName": {
       "type": "string"
     },
-    "aboutTextJonas": {
-      "type": "text"
-    },
-    "aboutTextRasmus": {
-      "type": "text"
-    },
-    "aboutTextOlle": {
-      "type": "text"
-    },
-    "aboutTextJohnny": {
-      "type": "text"
-    },
-    "aboutTextNikos": {
+    "aboutText": {
       "type": "text"
     },
     "aboutFoto": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ]
-    },
-    "aboutIntro": {
-      "type": "text"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

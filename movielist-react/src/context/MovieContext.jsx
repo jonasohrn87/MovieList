@@ -9,12 +9,12 @@ const MovieProvider = ({ children }) => {
   const [searchMovie, setSearchMovie] = useState("");
   const [reviews, setReviews] = useState([]);
   const [footer, setFooter] = useState([]);
-  const [about, setAbout] = useState({});
+  const [about, setAbout] = useState([]);
 
   useEffect(() => {
     const fetchAboutUs = async () => {
       const response = await fetch(
-        "http://localhost:1337/api/about-us?populate=*",
+        "http://localhost:1337/api/about-uses?populate=*",
         {}
       );
       const data = await response.json();
