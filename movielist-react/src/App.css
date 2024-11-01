@@ -195,6 +195,9 @@ body {
   font-size: 0.9rem;
   line-height: 1.5;
 }
+.movie-card .movie-review {
+  width: 100%;
+}
 
 .movieNights-container {
   display: grid;

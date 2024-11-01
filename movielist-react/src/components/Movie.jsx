@@ -8,8 +8,10 @@ const Movie = () => {
     useContext(MovieContext);
 
   return (
+    <div> 
     <div className="movies-grid">
-      {selectedMovie ? (
+        {selectedMovie ? (
+          <div>
         <div key={selectedMovie.id} className="movie-card">
           <h2>{selectedMovie.title}</h2>
           {selectedMovie.poster && (
@@ -20,8 +22,11 @@ const Movie = () => {
             />
           )}
           <p className="movie-description">{selectedMovie.description}</p>
-          <p className="movie-review">{selectedMovie.review}</p>
-        </div>
+          </div>
+          <div className="movie-review">
+      {selectedMovie.review}
+            </div>
+          </div>
       ) : (
         searchFilter.map((movie) => (
           <div key={movie.id} className="movie-card">
@@ -47,6 +52,7 @@ const Movie = () => {
         ))
       )}
     </div>
+  </div>
   );
 };
 
