@@ -21,7 +21,9 @@ const Movie = () => {
                   className="movie-poster"
                 />
               )}
-              Synopsis <p className="movie-description">{selectedMovie.description}</p>
+              SYNOPSIS
+              <br /> 
+              <p className="movie-description">{selectedMovie.description}</p>
             </div>
           </div>
         ) : (
