@@ -10,7 +10,6 @@ const MovieProvider = ({ children }) => {
   const [reviews, setReviews] = useState([]);
   const [footer, setFooter] = useState([]);
   const [contactInfo, setContactInfo] = useState([]);
-  const [noRender, setNoRender] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
 
@@ -42,7 +41,6 @@ const MovieProvider = ({ children }) => {
     fetchFooter();
   }, []);
 
-
   // useEffect(() => {
   //   const fetchReviews = async () => {
   //     const response = await fetch(
@@ -63,7 +61,7 @@ const MovieProvider = ({ children }) => {
 
   const checkUserLogin = () => {
     try {
-      const userData = localStorage.getItem('user');
+      const userData = localStorage.getItem("user");
       if (!userData) {
         handleLogout();
         return;
@@ -78,16 +76,18 @@ const MovieProvider = ({ children }) => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('user');
+    localStorage.removeItem("user");
     setUser(null);
     setIsLoggedIn(false);
   };
 
   const login = (userData) => {
-    localStorage.setItem('user', JSON.stringify(userData));
+    localStorage.setItem("user", JSON.stringify(userData));
     setUser(userData);
     setIsLoggedIn(true);
   };
+
+  useEffect(() => {
     const fetchContactInfo = async () => {
       const response = await fetch(
         "http://localhost:1337/api/contact-info?populate=*",
@@ -132,7 +132,7 @@ const MovieProvider = ({ children }) => {
         user,
         login,
         handleLogout,
-        checkAuthStatus: checkUserLogin
+        checkAuthStatus: checkUserLogin,
         contactInfo,
       }}
     >
