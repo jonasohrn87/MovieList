@@ -1,6 +1,7 @@
 $background: #d0e4e7;
 $primary-color: black;
 $search: #35cee4;
+$screenSize-mobile: 360px;
 $screenSize-small: 580px;
 $screenSize-medium: 780px;
 $screenSize-large: 1000px;
@@ -509,5 +510,79 @@ body {
 
   .chat-submit-btn:hover {
     background-color: #219aaa;
+  }
+}
+
+// About Grid
+
+.about-grid {
+  display: grid;
+  grid-template-rows: 1fr 8fr;
+  gap: 2rem;
+  
+  
+  h1{
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .about-container{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5rem;
+    
+    @media (max-width: $screenSize-mobile){
+      grid-template-columns: 1fr;
+      h1{
+        text-align: center;
+        align-self: center;
+      }
+      img {
+        justify-self: center;
+        width: 90%;
+      }
+    }
+    
+    @media (max-width: $screenSize-small) {
+      grid-template-columns: 1fr;
+      h1{
+        text-align: center;
+        align-self: center;
+      }
+      img {
+        justify-self: center;
+        width: 90%;
+      }
+    }
+    
+    @media (min-width: $screenSize-medium) {
+      grid-template-columns: 1fr 2fr;
+    }
+    
+    @media (min-width: $screenSize-large) {
+      grid-template-columns: 1fr 2fr;
+    }
+    
+    .about-foto{
+      border-radius: 2rem;
+      box-shadow: 4px 5px 8px 4px #888888;
+    }
+    
+    .about-text{
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      
+      ul > li {
+        margin-bottom: 1rem;
+        list-style-type: none;
+
+        label {
+          font-weight: bold;
+          font-size: larger;
+        }
+      }
+    }
   }
 }

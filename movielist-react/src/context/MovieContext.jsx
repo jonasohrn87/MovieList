@@ -9,9 +9,26 @@ const MovieProvider = ({ children }) => {
   const [searchMovie, setSearchMovie] = useState("");
   const [reviews, setReviews] = useState([]);
   const [footer, setFooter] = useState([]);
+
+  const [about, setAbout] = useState([]);
   const [contactInfo, setContactInfo] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
+  
+  useEffect(() => {
+    const fetchAboutUs = async () => {
+      const response = await fetch(
+        "http://localhost:1337/api/about-uses?populate=*",
+        {}
+      );
+      const data = await response.json();
+      if (data.data) {
+        setAbout(data.data);
+      }
+    };
+    fetchAboutUs();
+    console.log("Context", about);
+  }, []);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -40,6 +57,7 @@ const MovieProvider = ({ children }) => {
     };
     fetchFooter();
   }, []);
+
 
   // useEffect(() => {
   //   const fetchReviews = async () => {
@@ -128,6 +146,9 @@ const MovieProvider = ({ children }) => {
         searchFilter,
         reviews,
         footer,
+
+        about,
+
         isLoggedIn,
         user,
         login,
