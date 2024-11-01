@@ -14,10 +14,8 @@ import Movie from "./components/Movie.jsx";
 import Reviews from "./components/Reviews.jsx";
 import Footer from "./components/Footer.jsx";
 import AboutUs from "./components/AboutUs.jsx";
-import { MovieProvider } from "./context/MovieContext.jsx";
 import Contact from "./components/Contact.jsx";
 import { MovieProvider, MovieContext } from "./context/MovieContext.jsx";
-
 import User from "./components/User.jsx";
 // @ts-ignore
 import MLlogo from "./assets/MLlogo.png";
