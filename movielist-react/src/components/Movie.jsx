@@ -51,8 +51,8 @@ const Movie = () => {
       </div>
       {selectedMovie && (
         <div className="movie-review-container">
-          <div className="movie-review">
-            Betyg: {selectedMovie.rating}
+          <div className="movie-review"> RECENSION
+            Betyg: {selectedMovie.rating} av 5 ⭐️
             <br />
             {selectedMovie.review}
           </div>
