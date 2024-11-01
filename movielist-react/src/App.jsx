@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -14,9 +14,34 @@ import Movie from "./components/Movie.jsx";
 import Reviews from "./components/Reviews.jsx";
 import Footer from "./components/Footer.jsx";
 import Contact from "./components/Contact.jsx";
-import { MovieProvider } from "./context/MovieContext.jsx";
+import { MovieProvider, MovieContext } from "./context/MovieContext.jsx";
 import User from "./components/User.jsx";
-import { BiSolidCameraMovie } from "react-icons/bi";
+// @ts-ignore
+import MLlogo from "./assets/MLlogo.png";
+import { IoPersonSharp } from "react-icons/io5";
+
+const MovieHeader = () => {
+  const { isLoggedIn, user } = useContext(MovieContext);
+
+  let selectAvatar = "avatar " + "avatar-letters";
+
+  return (
+    <div>
+      <div>
+        <NavLink to="/user">
+          {isLoggedIn ? (
+            <span className={selectAvatar}>
+              <IoPersonSharp />
+              {user.username.charAt(0).toUpperCase()}
+            </span>
+          ) : (
+            <button>Logga in</button>
+          )}
+        </NavLink>
+      </div>
+    </div>
+  );
+};
 
 function App() {
   const [selectedMovie, setSelectedMovie] = useState(null);
@@ -31,19 +56,16 @@ function App() {
         <div className="main-container">
           <header className="header-container">
             <div className="header-container-inner">
-              <BiSolidCameraMovie />
-              <h4>MovieList</h4>
+              <img className="logoImage" src={MLlogo} alt="image of logo" />
+              <h2>MovieList</h2>
             </div>
-            <NavLink to="/user">
-              {/* <User /> */}
-              <button>Logga in</button>
-            </NavLink>
+            <MovieHeader />
           </header>
           <nav className="menu-container">
             <ul className="menu-list">
               <li>
                 <NavLink
-                  to="/"
+                  to="/home"
                   className={({ isActive }) =>
                     isActive ? "nav-link active" : "nav-link"
                   }
@@ -133,7 +155,7 @@ function App() {
           </nav>
           <div className="main-content">
             <Routes>
-              <Route path="/" element={<TodayMovies />} />
+              <Route path="/home" element={<TodayMovies />} />
               <Route path="/filmtraffar" element={<MovieNights />} />
               <Route path="/kommande" element={<UpcomingMovies />} />
               <Route
@@ -141,7 +163,7 @@ function App() {
                 element={<LiveCommunityChat />}
               />
               <Route path="/kontakt" element={<Contact />} />
-              <Route path="/movie" element={<Movie />} />
+              <Route path="/movie/" element={<Movie />} />
               <Route path="/recensioner" element={<Reviews />} />
               <Route path="/user" element={<User />} />
             </Routes>

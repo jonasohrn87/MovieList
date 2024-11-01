@@ -11,6 +11,8 @@ const MovieProvider = ({ children }) => {
   const [footer, setFooter] = useState([]);
   const [contactInfo, setContactInfo] = useState([]);
   const [noRender, setNoRender] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -40,6 +42,7 @@ const MovieProvider = ({ children }) => {
     fetchFooter();
   }, []);
 
+
   // useEffect(() => {
   //   const fetchReviews = async () => {
   //     const response = await fetch(
@@ -55,6 +58,36 @@ const MovieProvider = ({ children }) => {
   // }, []);
 
   useEffect(() => {
+    checkUserLogin();
+  }, []);
+
+  const checkUserLogin = () => {
+    try {
+      const userData = localStorage.getItem('user');
+      if (!userData) {
+        handleLogout();
+        return;
+      }
+
+      const userToObject = JSON.parse(userData);
+      setIsLoggedIn(true);
+      setUser(userToObject);
+    } catch (error) {
+      handleLogout();
+    }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    setUser(null);
+    setIsLoggedIn(false);
+  };
+
+  const login = (userData) => {
+    localStorage.setItem('user', JSON.stringify(userData));
+    setUser(userData);
+    setIsLoggedIn(true);
+  };
     const fetchContactInfo = async () => {
       const response = await fetch(
         "http://localhost:1337/api/contact-info?populate=*",
@@ -95,6 +128,11 @@ const MovieProvider = ({ children }) => {
         searchFilter,
         reviews,
         footer,
+        isLoggedIn,
+        user,
+        login,
+        handleLogout,
+        checkAuthStatus: checkUserLogin
         contactInfo,
       }}
     >
