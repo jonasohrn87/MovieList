@@ -52,7 +52,9 @@ const Movie = () => {
       {selectedMovie && (
         <div className="movie-review-container">
           <div className="movie-review"> RECENSION
+            <br />
             Betyg: {selectedMovie.rating} av 5 ⭐️
+            <br />
             <br />
             {selectedMovie.review}
           </div>
