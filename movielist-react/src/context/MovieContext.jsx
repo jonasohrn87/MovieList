@@ -73,6 +73,7 @@ const MovieProvider = ({ children }) => {
   //   fetchReviews();
   // }, []);
 
+
   useEffect(() => {
     checkUserLogin();
   }, []);
@@ -118,6 +119,7 @@ const MovieProvider = ({ children }) => {
     };
     fetchContactInfo();
   }, [false]);
+
 
   const searchFilter = movies
     .filter(
