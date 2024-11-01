@@ -120,8 +120,51 @@ body {
   }
 }
 
-.menu-container {
+.menu-container-desktop {
   background-color: white;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .menu-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    list-style-type: none;
+
+    @media (min-width: $screenSize-small) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (min-width: $screenSize-large) {
+      grid-template-columns: repeat(8, 1fr);
+    }
+
+    li {
+      text-align: center;
+
+      a {
+        display: block;
+        padding: 0.5rem;
+        text-decoration: none;
+        color: $primary-color;
+        transition:
+          background-color 0.2s,
+          color 0.2s;
+
+        &:hover {
+          background-color: $search;
+          color: white;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+}
+
+.menu-container-mobile {
+  display: none;
+  // background-color: white;
+  background-color: red;
   padding: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 

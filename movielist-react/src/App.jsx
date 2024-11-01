@@ -22,6 +22,8 @@ import User from "./components/User.jsx";
 // @ts-ignore
 import MLlogo from "./assets/MLlogo.png";
 import { IoPersonSharp } from "react-icons/io5";
+import DesktopNavigation from "./components/DesktopNavigation.jsx";
+import MobileNavigation from "./components/MobileNavigation.jsx";
 
 const MovieHeader = () => {
   const { isLoggedIn, user } = useContext(MovieContext);
@@ -63,99 +65,10 @@ function App() {
               <h2>MovieList</h2>
             </div>
             <MovieHeader />
-          </header>
-          <nav className="menu-container">
-            <ul className="menu-list">
-              <li>
-                <NavLink
-                  to="/home"
-                  className={({ isActive }) =>
-                    isActive ? "nav-link active" : "nav-link"
-                  }
-                  end
-                >
-                  Hem
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/filmtraffar"
-                  className={({ isActive }) =>
-                    isActive ? "nav-link active" : "nav-link"
-                  }
-                  end
-                >
-                  Filmträffar
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/topplistor"
-                  className={({ isActive }) =>
-                    isActive ? "nav-link active" : "nav-link"
-                  }
-                  end
-                >
-                  Topplistor
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/kommande"
-                  className={({ isActive }) =>
-                    isActive ? "nav-link active" : "nav-link"
-                  }
-                  end
-                >
-                  Kommande
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/recensioner"
-                  className={({ isActive }) =>
-                    isActive ? "nav-link active" : "nav-link"
-                  }
-                  end
-                >
-                  Recensioner
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/livecommunitychat"
-                  className={({ isActive }) =>
-                    isActive ? "nav-link active" : "nav-link"
-                  }
-                  end
-                >
-                  Live community chat
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/kontakt"
-                  className={({ isActive }) =>
-                    isActive ? "nav-link active" : "nav-link"
-                  }
-                  end
-                >
-                  Kontakt
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/omoss"
-                  className={({ isActive }) =>
-                    isActive ? "nav-link active" : "nav-link"
-                  }
-                  end
-                >
-                  Om oss
-                </NavLink>
-              </li>
-            </ul>
-          </nav>
+            </header>
+            <DesktopNavigation />
+            <MobileNavigation />
+
           <div className="main-content">
             <Routes>
               <Route path="/home" element={<TodayMovies />} />
