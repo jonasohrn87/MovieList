@@ -369,7 +369,6 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-
 export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
   collectionName: 'about_uses';
   info: {
@@ -377,21 +376,11 @@ export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
     displayName: 'About Us';
     pluralName: 'about-uses';
     singularName: 'about-us';
-
-export interface ApiContactInfoContactInfo extends Struct.SingleTypeSchema {
-  collectionName: 'contact_infos';
-  info: {
-    description: '';
-    displayName: 'ContactInfo';
-    pluralName: 'contact-infos';
-    singularName: 'contact-info';
-
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-
     aboutFoto: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     aboutName: Schema.Attribute.String;
     aboutText: Schema.Attribute.Text;
@@ -404,7 +393,25 @@ export interface ApiContactInfoContactInfo extends Struct.SingleTypeSchema {
       'api::about-us.about-us'
     > &
       Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
 
+export interface ApiContactInfoContactInfo extends Struct.SingleTypeSchema {
+  collectionName: 'contact_infos';
+  info: {
+    description: '';
+    displayName: 'ContactInfo';
+    pluralName: 'contact-infos';
+    singularName: 'contact-info';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -448,7 +455,6 @@ export interface ApiContactContact extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
-
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1144,12 +1150,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-
       'api::about-us.about-us': ApiAboutUsAboutUs;
-
       'api::contact-info.contact-info': ApiContactInfoContactInfo;
       'api::contact.contact': ApiContactContact;
-
       'api::footer.footer': ApiFooterFooter;
       'api::live-community-chat.live-community-chat': ApiLiveCommunityChatLiveCommunityChat;
       'api::movie-night.movie-night': ApiMovieNightMovieNight;
