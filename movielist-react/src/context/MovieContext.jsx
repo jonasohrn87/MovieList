@@ -9,8 +9,12 @@ const MovieProvider = ({ children }) => {
   const [searchMovie, setSearchMovie] = useState("");
   const [reviews, setReviews] = useState([]);
   const [footer, setFooter] = useState([]);
-  const [about, setAbout] = useState([]);
 
+  const [about, setAbout] = useState([]);
+  const [contactInfo, setContactInfo] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
+  
   useEffect(() => {
     const fetchAboutUs = async () => {
       const response = await fetch(
@@ -54,19 +58,66 @@ const MovieProvider = ({ children }) => {
     fetchFooter();
   }, []);
 
+
+  // useEffect(() => {
+  //   const fetchReviews = async () => {
+  //     const response = await fetch(
+  //       "http://localhost:1337/api/reviews?populate=*",
+  //       {}
+  //     );
+  //     const data = await response.json();
+  //     if (data.data) {
+  //       setReviews(data.data);
+  //     }
+  //   };
+  //   fetchReviews();
+  // }, []);
+
   useEffect(() => {
-    const fetchReviews = async () => {
+    checkUserLogin();
+  }, []);
+
+  const checkUserLogin = () => {
+    try {
+      const userData = localStorage.getItem("user");
+      if (!userData) {
+        handleLogout();
+        return;
+      }
+
+      const userToObject = JSON.parse(userData);
+      setIsLoggedIn(true);
+      setUser(userToObject);
+    } catch (error) {
+      handleLogout();
+    }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setUser(null);
+    setIsLoggedIn(false);
+  };
+
+  const login = (userData) => {
+    localStorage.setItem("user", JSON.stringify(userData));
+    setUser(userData);
+    setIsLoggedIn(true);
+  };
+
+  useEffect(() => {
+    const fetchContactInfo = async () => {
       const response = await fetch(
-        "http://localhost:1337/api/reviews?populate=*",
+        "http://localhost:1337/api/contact-info?populate=*",
         {}
       );
       const data = await response.json();
       if (data.data) {
-        setReviews(data.data);
+        setContactInfo(data.data);
       }
     };
-    fetchReviews();
-  }, []);
+    fetchContactInfo();
+  }, [false]);
 
   const searchFilter = movies
     .filter(
@@ -95,7 +146,15 @@ const MovieProvider = ({ children }) => {
         searchFilter,
         reviews,
         footer,
+
         about,
+
+        isLoggedIn,
+        user,
+        login,
+        handleLogout,
+        checkAuthStatus: checkUserLogin,
+        contactInfo,
       }}
     >
       {children}

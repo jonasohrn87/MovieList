@@ -9,7 +9,6 @@ import { FaXTwitter, FaTiktok } from "react-icons/fa6";
 
 const Footer = () => {
   const { footer } = useContext(MovieContext);
-
   return (
     <footer className="footer-container">
       <div className="footer-content">
@@ -21,7 +20,7 @@ const Footer = () => {
           <FaLinkedin />
         </div>
         {footer.map((footer) => (
-          <p key={footer.id}>{footer.footerText}</p>
+          <p key={footer.id}>{footer ? footer.footerText : ""}</p>
         ))}
       </div>
     </footer>
