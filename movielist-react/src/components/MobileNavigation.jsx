@@ -54,7 +54,7 @@ return (
                   Kommande
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink
                   to="/recensioner"
                   className={({ isActive }) =>
@@ -64,7 +64,7 @@ return (
                 >
                   Recensioner
                 </NavLink>
-              </li>
+              </li> */}
               <li>
                 <NavLink
                   to="/livecommunitychat"
