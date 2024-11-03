@@ -21,7 +21,7 @@ import MLlogo from "./assets/MLlogo.png";
 import UserMenu from "./components/UserMenu.jsx";
 import DesktopNavigation from "./components/DesktopNavigation.jsx";
 import MobileNavigation from "./components/MobileNavigation.jsx";
-
+import ToggleDarkMode from "./components/ToggleDarkMode.jsx";
 
 function App() {
   const [selectedMovie, setSelectedMovie] = useState(null);
@@ -39,7 +39,10 @@ function App() {
               <img className="logoImage" src={MLlogo} alt="image of logo" />
               <h2>MovieList</h2>
             </div>
-            <UserMenu />
+            <div className="darkModeAndUser-container">
+              <ToggleDarkMode />
+              <UserMenu />
+            </div>
             </header>
             <DesktopNavigation />
             <MobileNavigation />

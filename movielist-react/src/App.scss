@@ -62,30 +62,50 @@ body {
 }
 
 // .avatar-letters {
-//   color: white;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   font-size: 0.8rem;
-// }
-
-.avatar {
-  height: 3rem;
-  width: 3rem;
-  border-radius: 50%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 0.1rem solid rgb(35, 90, 92);
-  color: rgb(35, 90, 92);
-}
-
-.avatar > svg {
-  height: 50%;
-  width: 50%;
-  color: rgb(35, 90, 92);
-}
+  //   color: white;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   font-size: 0.8rem;
+  // }
+  
+  .avatar {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.1rem solid rgb(35, 90, 92);
+    color: rgb(35, 90, 92);
+  }
+  
+  .avatar > svg {
+    height: 50%;
+    width: 50%;
+    color: rgb(35, 90, 92);
+  }
+  
+  .darkModeAndUser-container {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    
+    .darkMode-btn {
+      display: flex;
+      font-size: 1.5em;
+      color: black;
+      border: none;
+      background: none;
+      padding: 0.3rem;
+      
+      &:hover {
+        background-color: #967d10;
+        border-radius: 50%;
+      }
+    }
+  }
 
 .dropdown-login-btn {
   padding: 0.5rem;

@@ -64,6 +64,24 @@ body {
   color: rgb(35, 90, 92);
 }
 
+.darkModeAndUser-container {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+.darkModeAndUser-container .darkMode-btn {
+  display: flex;
+  font-size: 1.5em;
+  color: black;
+  border: none;
+  background: none;
+  padding: 0.3rem;
+}
+.darkModeAndUser-container .darkMode-btn:hover {
+  background-color: #967d10;
+  border-radius: 50%;
+}
+
 .dropdown-login-btn {
   padding: 0.5rem;
   background-color: #35cee4;
