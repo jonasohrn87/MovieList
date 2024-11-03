@@ -9,7 +9,6 @@ import { FaXTwitter, FaTiktok } from "react-icons/fa6";
 
 const Footer = () => {
   const { footer } = useContext(MovieContext);
-
   return (
     <footer className="footer-container">
       <div className="footer-content">
