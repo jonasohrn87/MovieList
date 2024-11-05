@@ -6,6 +6,28 @@ $screenSize-small: 580px;
 $screenSize-medium: 780px;
 $screenSize-large: 1000px;
 
+:root {
+  --background-color: #d0e4e7;
+  --background-edge-color: #c4d7da;
+  --header-color: rgb(231, 238, 238);
+  --menu-color: white;
+  --primary-color: black;
+  --text-color: black;
+  --darkmode-btn-color: black;
+  --search-color: #35cee4;
+}
+
+:root.dark-mode {
+  --background-color: #809a9e;
+  --background-edge-color: #8fa7aa;
+  --header-color: rgb(208, 216, 216);
+  --menu-color: white;
+  --primary-color: black;
+  --text-color: black;
+  --darkmode-btn-color: rgb(189, 132, 8);
+  --search-color: #096b7a;
+}
+
 @mixin flexRow {
   display: flex;
   flex-direction: row;
@@ -18,7 +40,7 @@ $screenSize-large: 1000px;
 }
 
 body {
-  background-color: #c4d7da;
+  background-color: var(--background-edge-color);
   color: $primary-color;
   min-height: 100vh;
   display: flex;
@@ -33,13 +55,15 @@ body {
   width: 100vw;
   max-width: 1400px;
   padding: 0 1rem;
-  background-color: $background;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .header-container {
   display: flex;
   flex-basis: auto;
-  background-color: rgb(231, 238, 238);
+  background-color: var(--header-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 0.5rem;
   justify-content: space-between;
@@ -95,14 +119,13 @@ body {
     .darkMode-btn {
       display: flex;
       font-size: 1.5em;
-      color: black;
+      color: var(--darkmode-btn-color);
       border: none;
       background: none;
       padding: 0.3rem;
       
       &:hover {
-        background-color: #967d10;
-        border-radius: 50%;
+        opacity: 0.8;
       }
     }
   }
@@ -141,6 +164,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     min-width: 250px;
+    margin-top: 1em;
 
     .user-container {
       padding: 1rem;

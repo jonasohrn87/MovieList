@@ -43,9 +43,9 @@ function App() {
               <ToggleDarkMode />
               <UserMenu />
             </div>
-            </header>
-            <DesktopNavigation />
-            <MobileNavigation />
+          </header>
+          <DesktopNavigation />
+          <MobileNavigation />
 
           <div className="main-content">
             <Routes>
