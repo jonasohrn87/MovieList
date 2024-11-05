@@ -21,7 +21,7 @@ $screenSize-large: 1000px;
   --background-color: #809a9e;
   --background-edge-color: #8fa7aa;
   --header-color: rgb(208, 216, 216);
-  --menu-color: white;
+  --menu-color: rgb(189, 189, 189);
   --primary-color: black;
   --text-color: black;
   --darkmode-btn-color: rgb(189, 132, 8);
@@ -202,7 +202,7 @@ body {
 }
 
 .menu-container-desktop {
-  background-color: white;
+  background-color: var(--menu-color);
   padding: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
@@ -244,7 +244,7 @@ body {
 
 .menu-container-mobile {
   display: none;
-  background-color: white;
+  background-color: var(--menu-color);
   // background-color: red;
   padding: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -309,20 +309,20 @@ body {
 }
 
 @media (max-width: 768px) {
-
   .menu-container-desktop{
     display: none;
+    background-color: var(--menu-color);
   }
 
   .menu-container-mobile{
     display:flex;
-    background-color: red;
+    background-color: var(--menu-color);
   }
 }
 
 .footer-container {
   margin-top: auto;
-  background-color: white;
+  background-color: var(--menu-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   .footer-content {
