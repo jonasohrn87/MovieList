@@ -14,6 +14,9 @@ const MovieProvider = ({ children }) => {
   const [contactInfo, setContactInfo] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
+  const [darkMode, setDarkMode] = useState(() => {
+    return JSON.parse(localStorage.getItem('darkMode') || 'false');
+  });
   
   useEffect(() => {
     const fetchAboutUs = async () => {
@@ -120,6 +123,14 @@ const MovieProvider = ({ children }) => {
     fetchContactInfo();
   }, [false]);
 
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark-mode', darkMode);
+    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+  }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode(prevMode => !prevMode);
+  };
 
   const searchFilter = movies
     .filter(
@@ -157,6 +168,8 @@ const MovieProvider = ({ children }) => {
         handleLogout,
         checkAuthStatus: checkUserLogin,
         contactInfo,
+        darkMode,
+        toggleDarkMode,
       }}
     >
       {children}
