@@ -13,7 +13,7 @@ const TodayMovies = () => {
       <div className="searchbar">
         <input
           type="text"
-          placeholder="Sök filmer..."
+          placeholder="Sök film efter titel eller genre..."
           value={searchMovie}
           onChange={(e) => setSearchMovie(e.target.value)}
           className="search-input"
