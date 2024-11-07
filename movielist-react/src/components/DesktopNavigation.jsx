@@ -50,17 +50,6 @@ return (
                   Kommande
                 </NavLink>
               </li>
-              {/* <li>
-                <NavLink
-                  to="/recensioner"
-                  className={({ isActive }) =>
-                    isActive ? "nav-link active" : "nav-link"
-                  }
-                  end
-                >
-                  Recensioner
-                </NavLink>
-              </li> */}
               <li>
                 <NavLink
                   to="/livecommunitychat"

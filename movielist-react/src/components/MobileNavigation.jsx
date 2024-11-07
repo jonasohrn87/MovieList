@@ -1,14 +1,25 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import {MdOutlineMenu} from 'react-icons/md'
+import {MdClose} from 'react-icons/md'
+import { useState } from "react";
 
 const MobileNavigation= () => {
+  const [click, setClick] = useState(false);
   const Hamburger = <MdOutlineMenu className="HamburgerMenu"
-  size="30px" color="black"/>
+  size="30px" 
+  color="black"
+  onClick={() => setClick(!click)}/>
+
+  const Close = <MdClose className="HamburgerMenu"
+  size="30px" 
+  color="black"
+  onClick={() => setClick(!click)} />
 
 return (
 <nav className="menu-container-mobile">
-  {Hamburger}
+  {click ? Close : Hamburger}
+  {click &&  
             <ul className="menu-list">
               <li>
                 <NavLink
@@ -54,17 +65,6 @@ return (
                   Kommande
                 </NavLink>
               </li>
-              {/* <li>
-                <NavLink
-                  to="/recensioner"
-                  className={({ isActive }) =>
-                    isActive ? "nav-link active" : "nav-link"
-                  }
-                  end
-                >
-                  Recensioner
-                </NavLink>
-              </li> */}
               <li>
                 <NavLink
                   to="/livecommunitychat"
@@ -98,7 +98,7 @@ return (
                   Om oss
                 </NavLink>
               </li>
-            </ul>
+            </ul>}
           </nav>
 );
 };
