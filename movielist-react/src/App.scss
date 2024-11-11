@@ -123,6 +123,9 @@ body {
       border: none;
       background: none;
       padding: 0.3rem;
+      label {
+        display: none;
+      }
       
       &:hover {
         opacity: 0.8;

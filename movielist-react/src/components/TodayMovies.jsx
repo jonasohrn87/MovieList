@@ -11,7 +11,9 @@ const TodayMovies = () => {
   return (
     <div className="todayMovies-container">
       <div className="searchbar">
+        <label htmlFor="searchbar">Sökruta</label>
         <input
+          id="searchbar"
           type="text"
           placeholder="Sök film efter titel eller genre..."
           value={searchMovie}

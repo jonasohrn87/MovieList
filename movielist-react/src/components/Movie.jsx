@@ -12,7 +12,7 @@ const Movie = () => {
       <div className="movies-grid">
         {selectedMovie ? (
           <div>
-            <div key={selectedMovie.id} className="movie-card">
+            <div tabIndex={0} key={selectedMovie.id} className="movie-card">
               <h2>{selectedMovie.title}</h2>
               {selectedMovie.poster && (
                 <img
@@ -28,7 +28,7 @@ const Movie = () => {
           </div>
         ) : (
           searchFilter.map((movie) => (
-            <div key={movie.id} className="movie-card">
+            <div tabIndex={0} key={movie.id} className="movie-card">
               <h2>{movie.title}</h2>
               {movie.poster && (
                 <img
@@ -51,14 +51,14 @@ const Movie = () => {
           ))
         )}
       </div>
-      {selectedMovie && (
-        <div className="movie-review-container">
-          <div className="movie-review"> RECENSION
+      {selectedMovie && ( 
+        <div tabIndex={0} className="movie-review-container">
+          <div  className="movie-review"> RECENSION
             <br />
             Betyg: {selectedMovie.rating} av 5 ⭐️
             <br />
             <br />
-            {selectedMovie.review}
+            {selectedMovie.review} 
           </div>
         </div>
       )}

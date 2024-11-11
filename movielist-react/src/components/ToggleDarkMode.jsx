@@ -6,7 +6,7 @@ const ToggleDarkMode = () => {
   const { toggleDarkMode } = useContext(MovieContext);
 
   return (
-    <button className="darkMode-btn" onClick={toggleDarkMode}>
+    <button className="darkMode-btn" value="dark" onClick={toggleDarkMode}>Mörkt läge
       <BsSunFill />
     </button>
   );
