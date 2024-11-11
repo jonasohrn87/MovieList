@@ -7,6 +7,7 @@
   --text-color: black;
   --darkmode-btn-color: black;
   --search-color: #35cee4;
+  --darkmode-text: rgb(231, 238, 238);
 }
 
 :root.dark-mode {
@@ -18,6 +19,7 @@
   --text-color: black;
   --darkmode-btn-color: rgb(189, 132, 8);
   --search-color: #096b7a;
+  --darkmode-text: rgb(208, 216, 216);
 }
 
 * {
@@ -96,10 +98,13 @@ body {
 .darkModeAndUser-container .darkMode-btn {
   display: flex;
   font-size: 1.5em;
-  color: var(--darkmode-btn-color);
+  color: var(--darkmode-text);
   border: none;
   background: none;
   padding: 0.3rem;
+}
+.darkModeAndUser-container .darkMode-btn svg {
+  color: var(--darkmode-btn-color);
 }
 .darkModeAndUser-container .darkMode-btn:hover {
   opacity: 0.8;

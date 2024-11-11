@@ -15,6 +15,7 @@ $screenSize-large: 1000px;
   --text-color: black;
   --darkmode-btn-color: black;
   --search-color: #35cee4;
+  --darkmode-text: rgb(231, 238, 238);
 }
 
 :root.dark-mode {
@@ -26,6 +27,8 @@ $screenSize-large: 1000px;
   --text-color: black;
   --darkmode-btn-color: rgb(189, 132, 8);
   --search-color: #096b7a;
+  --darkmode-text: rgb(208, 216, 216);
+
 }
 
 @mixin flexRow {
@@ -119,12 +122,12 @@ body {
     .darkMode-btn {
       display: flex;
       font-size: 1.5em;
-      color: var(--darkmode-btn-color);
+      color: var(--darkmode-text);
       border: none;
       background: none;
       padding: 0.3rem;
-      label {
-        display: none;
+      svg {
+        color: var(--darkmode-btn-color);
       }
       
       &:hover {
