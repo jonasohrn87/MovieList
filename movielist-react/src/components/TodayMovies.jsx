@@ -11,7 +11,7 @@ const TodayMovies = () => {
   return (
     <div className="todayMovies-container">
       <div className="searchbar">
-        <label htmlFor="searchbar">Sökruta</label>
+        <label htmlFor="searchbar" className="searchbar-label-hidden">Sökruta</label>
         <input
           id="searchbar"
           type="text"
