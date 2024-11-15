@@ -3,11 +3,11 @@
 Database used is MySQL. For local use you might need to change at least password but might also need to change user for Strapi to recognize database and login details.  
 You also need to create a database in MySQL before you run Strapi for the first time.  
 The details needed is:  
-...
-Username: root
-Password: Admin123!
-Database name: moviedb
-...
+```
+Username: root  
+Password: Admin123!  
+Database name: moviedb  
+```
 
 - After this run "npm install" in the project root folder for it to install necessary dependencies for Strapi. To start Strapi run "npm run develop".  
 - For React Vite JS go to movielist-react folder inside movielist root folder and run "npm install" there aswell for necessary dependencies for React. To start React run "npm run dev".  
